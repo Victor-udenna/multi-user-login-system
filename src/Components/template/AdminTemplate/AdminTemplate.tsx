@@ -7,9 +7,14 @@ export default function AdminTemplate() {
   const router = useRouter();
 
   useEffect(() => {
-    const role = sessionStorage.getItem('role');
-    if (role !== 'Admin') {
-      router.push('/');
+    try {
+      const role = sessionStorage.getItem('role');
+
+      if (role !== 'Admin') {
+        router.push('/');
+      }
+    } catch (error) {
+      console.error('Error accessing sessionStorage:', error);
     }
   }, []);
 

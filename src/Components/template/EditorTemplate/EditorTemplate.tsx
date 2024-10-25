@@ -7,9 +7,14 @@ export default function EditorTemplate() {
   const router = useRouter();
 
   useEffect(() => {
-    const role = sessionStorage.getItem('role');
-    if (role !== 'Editor') {
-      router.push('/');
+    try {
+      const role = sessionStorage.getItem('role');
+
+      if (role !== 'Editor') {
+        router.push('/');
+      }
+    } catch (error) {
+      console.error('Error accessing sessionStorage:', error);
     }
   }, []);
 
