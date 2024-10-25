@@ -1,0 +1,81 @@
+/* SideBarStyle.scss */
+
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  padding-top: 40px;
+
+  &__role {
+    margin-bottom: 20px;
+  }
+
+  &__role-text {
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+
+  &__nav-header {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+
+  &__nav-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  &__nav-item {
+    margin-bottom: 10px;
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    a:hover {
+      color: #e0e0e0;
+    }
+  }
+}
+.sidebar--admin {
+  background-color: #1a8af6;
+  .sidebar__nav-item a {
+    color: #fff;
+  }
+}
+
+.sidebar--editor {
+  background-color: #003366;
+  .sidebar__nav-item a {
+    color: #80d4ff;
+  }
+}
+.sidebar--viewer {
+  background-color: #f0f0f0;
+  color: #333;
+  .sidebar__nav-item a {
+    color: #1a8af6;
+  }
+}
+
+.sidebar__role-button {
+  display: inline-block;
+  padding: 8px 12px;
+  border: 1px solid currentColor;
+  border-radius: 8px;
+  background-color: transparent;
+  color: inherit;
+  font-weight: bold;
+  text-align: center;
+  cursor: default;
+  transition: background-color 0.3s;
+  width: 90px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
