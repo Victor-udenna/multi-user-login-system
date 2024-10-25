@@ -5,11 +5,8 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 ## Table of Contents
 - [Overview](#overview)
 - [Getting Started](#getting-started)
-- [Features](#features)
 - [Mock Data](#mock-data)
-- [User Roles and Dashboards](#user-roles-and-dashboards)
 - [Deployment](#deployment)
-- [Learn More](#learn-more)
 
 ## Overview
 
@@ -21,5 +18,27 @@ To get started with this project, follow these steps:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/multi-user-login-system.git
+   git clone https://github.com/Victor-udenna/multi-user-login-system.git
    cd multi-user-login-system
+   run npm install
+   run npm run dev
+
+## Mock Data
+
+Admin:
+Username: admin
+Password: admin123
+Editor:
+Username: editor
+Password: editor123
+Viewer:
+Username: viewer
+Password: viewer123
+
+
+## Deployment
+
+vercel: https://github.com/Victor-udenna/multi-user-login-system.git
+
+
+
