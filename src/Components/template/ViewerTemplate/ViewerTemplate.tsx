@@ -7,14 +7,16 @@ export default function ViewerTemplate() {
   const router = useRouter();
 
   useEffect(() => {
-    try {
-      const role = sessionStorage.getItem('role');
+    if (typeof window !== 'undefined') {
+      try {
+        const role = sessionStorage.getItem('role');
 
-      if (role !== 'Viewer') {
-        router.push('/');
+        if (role !== 'Viewer') {
+          router.push('/');
+        }
+      } catch (error) {
+        console.error('Error accessing sessionStorage:', error);
       }
-    } catch (error) {
-      console.error('Error accessing sessionStorage:', error);
     }
   }, []);
 
