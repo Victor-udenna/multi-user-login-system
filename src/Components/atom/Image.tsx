@@ -4,8 +4,8 @@ import Image, { StaticImageData } from 'next/image';
 interface ImageProps {
   src: string | StaticImageData;
   alt: string;
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
   className?: string;
   unOptimized?: boolean;
   onClick?: () => void;
@@ -20,7 +20,7 @@ const ImageAtom: FC<ImageProps> = ({ src, alt, unOptimized, width, height, class
       width={width}
       height={height}
       className={className}
-      onClick={onClick} 
+      onClick={onClick}
     />
   );
 };

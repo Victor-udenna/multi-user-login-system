@@ -1,9 +1,22 @@
 .login-template {
   display: flex;
   align-items: center;
-  justify-content: center;
   height: 100dvh;
+  padding: 0px 60px 0px 0px;
   width: 100%;
-  flex-direction: column;
-  background-color: #5677ba0c;
+  background-color: white;
+  gap: 6%;
+}
+
+.login-template__poster {
+  width: 50%;
+  height: 100%;
+  background-color: #eff3f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 50%;
+  }
 }

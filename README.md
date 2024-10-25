@@ -38,7 +38,7 @@ Password: viewer123
 
 ## Deployment
 
-vercel: https://github.com/Victor-udenna/multi-user-login-system.git
+vercel: https://multi-user-login-system.vercel.app/
 
 
 
