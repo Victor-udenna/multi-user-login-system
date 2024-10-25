@@ -1,5 +1,7 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+
 import React from 'react';
 import './HeaderStyle.scss';
 import { useRouter } from 'next/navigation';
@@ -9,21 +11,28 @@ import Button from '@/Components/atom/Button';
 import avatar from '@/assets/avatar.svg';
 
 export default function Header() {
+  const [userName, setUserName] = useState('');
   const router = useRouter();
 
   const handleLogout = () => {
-    sessionStorage.removeItem('role');
+    sessionStorage?.removeItem('role');
     router.push('/');
   };
-  const role = sessionStorage.getItem('role');
-  let userName = 'User';
-  if (role === 'admin') {
-    userName = 'Administrator';
-  } else if (role === 'user') {
-    userName = 'User';
-  } else if (role === 'editor') {
-    userName = 'Editor';
-  }
+
+  const handleUsername = () => {
+    const storedRole = sessionStorage?.getItem('role');
+    if (storedRole === 'Admin') {
+      setUserName('Administrator');
+    } else if (storedRole === 'Viewer') {
+      setUserName('User');
+    } else if (storedRole === 'Editor') {
+      setUserName('Editor');
+    }
+  };
+
+  useEffect(() => {
+    handleUsername();
+  }, []);
 
   return (
     <header className="header">

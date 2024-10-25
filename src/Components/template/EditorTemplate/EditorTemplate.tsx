@@ -7,20 +7,19 @@ export default function EditorTemplate() {
   const router = useRouter();
   const checkUserRole = () => {
     try {
-      const role = sessionStorage.getItem('role');
+      const role = sessionStorage?.getItem('role');
       if (role !== 'Editor') {
         router.push('/');
       }
     } catch (error) {
       console.error('Error accessing sessionStorage:', error);
+      router.push('/');
     }
   };
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      checkUserRole();
-    }
-  }, [router]);
+    checkUserRole();
+  }, []);
 
   return <h1>Welcome to the Editor Dashboard</h1>;
 }

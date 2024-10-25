@@ -8,20 +8,19 @@ export default function AdminTemplate() {
 
   const checkUserRole = () => {
     try {
-      const role = sessionStorage.getItem('role');
+      const role = sessionStorage?.getItem('role');
       if (role !== 'Admin') {
         router.push('/');
       }
     } catch (error) {
       console.error('Error accessing sessionStorage:', error);
+      router.push('/');
     }
   };
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      checkUserRole();
-    }
-  }, [router]);
+    checkUserRole();
+  }, []);
 
   return <h1>Welcome to the Admin Dashboard</h1>;
 }

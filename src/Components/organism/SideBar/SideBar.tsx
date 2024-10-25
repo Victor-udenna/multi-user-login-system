@@ -5,7 +5,7 @@ export default function SideBar() {
   const [role, setRole] = useState<string | null>(null);
 
   useEffect(() => {
-    const storedRole = sessionStorage.getItem('role');
+    const storedRole = sessionStorage?.getItem('role');
     setRole(storedRole);
   }, []);
 

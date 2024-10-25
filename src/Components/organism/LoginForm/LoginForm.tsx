@@ -20,7 +20,6 @@ export default function LoginForm() {
     e.preventDefault();
     setLoading(true);
     setError('');
-
     if (!username || !password || !role) {
       setError('All fields are required.');
       setLoading(false);
@@ -77,7 +76,7 @@ export default function LoginForm() {
               placeholder="Username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              required={true}
+              required
             />
           </div>
           <div className={`login-form__input-wrapper ${error ? 'error' : ''}`}>
@@ -86,8 +85,8 @@ export default function LoginForm() {
               type={showPassword ? 'text' : 'password'}
               placeholder="Password"
               value={password}
-              required={true}
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
             <span
               role="button"
@@ -99,12 +98,7 @@ export default function LoginForm() {
             </span>
           </div>
           <div className={`login-form__input-wrapper ${error ? 'error' : ''}`}>
-            <select
-              className="login-form__input"
-              value={role}
-              onChange={(e) => setRole(e.target.value)}
-              required
-            >
+            <select className="login-form__input" value={role} onChange={(e) => setRole(e.target.value)} required>
               <option value="" disabled>
                 Select Role
               </option>
@@ -115,7 +109,7 @@ export default function LoginForm() {
           </div>
         </div>
         {error && <p className="form-error-message">{error}</p>}
-        <Text className="login-form__forgot-password">{'Forgot PASSWORD?'}</Text>
+        <Text className="login-form__forgot-password">Forgot PASSWORD?</Text>
         <Button className="login-form__button" textValue={loading ? 'LOADING...' : 'LOG IN'} disabled={loading} />
       </form>
     </div>
