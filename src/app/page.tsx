@@ -1,3 +1,5 @@
+'use client';
+
 import LoginTemplate from '@/Components/template/LoginTemplate/LoginTemplate';
 import './globals.scss';
 
