@@ -18,7 +18,7 @@ export default function AdminTemplate() {
         console.error('Error accessing sessionStorage:', error);
       }
     }
-  }, []);
+  }, [router]);
 
   return <h1>Welcome to the Admin Dashboard</h1>;
 }

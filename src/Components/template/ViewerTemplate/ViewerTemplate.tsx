@@ -18,7 +18,7 @@ export default function ViewerTemplate() {
         console.error('Error accessing sessionStorage:', error);
       }
     }
-  }, []);
+  }, [router]);
 
   return <h1>Welcome to the Viewer Dashboard</h1>;
 }

@@ -18,7 +18,7 @@ export default function EditorTemplate() {
         console.error('Error accessing sessionStorage:', error);
       }
     }
-  }, []);
+  }, [router]);
 
   return <h1>Welcome to the Editor Dashboard</h1>;
 }
