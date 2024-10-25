@@ -1,4 +1,3 @@
-import Button from '@/Components/atom/Button';
 import './LoginTemplateStyle.scss';
 import LoginForm from '@/Components/organism/LoginForm/LoginForm';
 

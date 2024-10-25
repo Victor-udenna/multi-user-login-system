@@ -26,17 +26,12 @@ To get started with this project, follow these steps:
 ## Mock Data
 
 Admin:
-And this line will appear on a new line.
 Username: admin
 Password: admin123
-This line will break after two spaces. 
 Editor:
-And this line will appear on a new line.
 Username: editor
 Password: editor123
-This line will break after two spaces. 
 Viewer:
-And this line will appear on a new line.
 Username: viewer
 Password: viewer123
 

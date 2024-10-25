@@ -19,18 +19,27 @@ export default function LoginForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setError('');
+
+    if (!username || !password || !role) {
+      setError('All fields are required.');
+      setLoading(false);
+      return;
+    }
+
     const credentials = {
       admin: { username: 'admin', password: 'admin123', role: 'Admin' },
       editor: { username: 'editor', password: 'editor123', role: 'Editor' },
       viewer: { username: 'viewer', password: 'viewer123', role: 'Viewer' },
     };
+
     const user = Object.values(credentials).find(
       (cred) => cred.username === username && cred.password === password && cred.role === role
     );
 
     if (user) {
+      sessionStorage.setItem('role', user.role);
       setTimeout(() => {
-        sessionStorage.setItem('role', user.role);
         switch (user.role) {
           case 'Admin':
             router.push('/admin-dashboard');
@@ -45,6 +54,7 @@ export default function LoginForm() {
             router.push('/login');
             break;
         }
+        setLoading(false);
       }, 1000);
     } else {
       setError('Invalid username, password, or role. Please check your details.');
@@ -69,7 +79,6 @@ export default function LoginForm() {
               onChange={(e) => setUsername(e.target.value)}
               required={true}
             />
-            {!username && error && <span className="error-message">Username is required</span>}
           </div>
           <div className={`login-form__input-wrapper ${error ? 'error' : ''}`}>
             <Input
@@ -80,7 +89,6 @@ export default function LoginForm() {
               required={true}
               onChange={(e) => setPassword(e.target.value)}
             />
-            {!password && error && <span className="error-message">Password is required</span>}
             <span
               role="button"
               tabIndex={2}
@@ -91,7 +99,15 @@ export default function LoginForm() {
             </span>
           </div>
           <div className={`login-form__input-wrapper ${error ? 'error' : ''}`}>
-            <select className="login-form__input" value={role} onChange={(e) => setRole(e.target.value)}>
+            <select
+              className="login-form__input"
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+              required
+            >
+              <option value="" disabled>
+                Select Role
+              </option>
               <option value="Admin">Admin</option>
               <option value="Editor">Editor</option>
               <option value="Viewer">Viewer</option>
@@ -100,14 +116,7 @@ export default function LoginForm() {
         </div>
         {error && <p className="form-error-message">{error}</p>}
         <Text className="login-form__forgot-password">{'Forgot PASSWORD?'}</Text>
-        <Button
-          onClick={() => {
-            handleSubmit;
-          }}
-          className="login-form__button"
-          textValue={loading ? 'LOADING...' : 'LOG IN'}
-          disabled={loading}
-        />
+        <Button className="login-form__button" textValue={loading ? 'LOADING...' : 'LOG IN'} disabled={loading} />
       </form>
     </div>
   );
